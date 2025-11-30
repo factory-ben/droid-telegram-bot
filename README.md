@@ -20,13 +20,7 @@ A Telegram bot that interfaces with [Factory's Droid CLI](https://factory.ai), a
 
 ## Quick Start
 
-### 1. Get a Factory API Key
-
-1. Sign up at [factory.ai](https://factory.ai)
-2. Go to Settings → API Keys
-3. Create a new API key and copy it
-
-### 2. Install Droid CLI
+### 1. Install Droid CLI
 
 ```bash
 # Install the Droid CLI
@@ -35,6 +29,12 @@ curl -fsSL https://factory.ai/install.sh | sh
 # Verify installation
 droid --version
 ```
+
+### 2. Get a Factory API Key
+
+1. Sign up at [factory.ai](https://factory.ai)
+2. Go to Settings → API Keys
+3. Create a new API key and copy it
 
 ### 3. Clone and Install
 
@@ -52,7 +52,7 @@ cp .env.example .env
 ```
 
 Required environment variables:
-- `FACTORY_API_KEY` - Your Factory API key (from step 1)
+- `FACTORY_API_KEY` - Your Factory API key (from step 2)
 - `TELEGRAM_BOT_TOKEN` - Your bot token from BotFather
 - `TELEGRAM_ALLOWED_USER_IDS` - Comma-separated Telegram user IDs
 
