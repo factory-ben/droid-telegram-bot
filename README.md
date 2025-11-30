@@ -13,21 +13,38 @@ A Telegram bot that interfaces with [Factory's Droid CLI](https://factory.ai), a
 ## Prerequisites
 
 - Python 3.10+
-- [Factory Droid CLI](https://docs.factory.ai) installed and authenticated
+- A [Factory](https://factory.ai) account and API key
+- [Droid CLI](https://docs.factory.ai) installed
 - Telegram bot token (from [@BotFather](https://t.me/botfather))
 - Your Telegram user ID (from [@userinfobot](https://t.me/userinfobot))
 
 ## Quick Start
 
-### 1. Clone and Install
+### 1. Get a Factory API Key
+
+1. Sign up at [factory.ai](https://factory.ai)
+2. Go to Settings → API Keys
+3. Create a new API key and copy it
+
+### 2. Install Droid CLI
 
 ```bash
-git clone https://github.com/anthropics/droid-telegram.git
-cd droid-telegram
+# Install the Droid CLI
+curl -fsSL https://factory.ai/install.sh | sh
+
+# Verify installation
+droid --version
+```
+
+### 3. Clone and Install
+
+```bash
+git clone https://github.com/factory-ben/droid-telegram-bot.git
+cd droid-telegram-bot
 pip install -r requirements.txt
 ```
 
-### 2. Configure Environment
+### 4. Configure Environment
 
 ```bash
 cp .env.example .env
@@ -35,10 +52,11 @@ cp .env.example .env
 ```
 
 Required environment variables:
+- `FACTORY_API_KEY` - Your Factory API key (from step 1)
 - `TELEGRAM_BOT_TOKEN` - Your bot token from BotFather
 - `TELEGRAM_ALLOWED_USER_IDS` - Comma-separated Telegram user IDs
 
-### 3. Run
+### 5. Run
 
 ```bash
 # Direct
@@ -52,8 +70,9 @@ TELEGRAM_BOT_TOKEN=your-token TELEGRAM_ALLOWED_USER_IDS=123456 python bot.py
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `TELEGRAM_BOT_TOKEN` | ✅ | - | Telegram bot token |
-| `TELEGRAM_ALLOWED_USER_IDS` | ✅ | - | Comma-separated user IDs |
+| `FACTORY_API_KEY` | ✅ | - | Your Factory API key ([get one here](https://factory.ai)) |
+| `TELEGRAM_BOT_TOKEN` | ✅ | - | Telegram bot token from @BotFather |
+| `TELEGRAM_ALLOWED_USER_IDS` | ✅ | - | Comma-separated Telegram user IDs |
 | `DROID_PATH` | ❌ | `droid` | Path to Droid CLI |
 | `DROID_DEFAULT_CWD` | ❌ | `~` | Default working directory |
 | `DROID_LOG_FILE` | ❌ | `/var/log/droid-telegram/bot.log` | Log file path |
